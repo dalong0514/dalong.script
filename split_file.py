@@ -43,23 +43,46 @@ for infile in glob.glob("/Users/Daglas/Desktop/*.txt"):
             lines = file_obj.readlines()
 
     # 一定要确认传入的锚点字符在文档里是唯一的，可以直接在文档里搜索来确认
-    xlsx = pd.ExcelFile('readsplit.xlsx')
-    ls = pd.read_excel(xlsx, 'Sheet1')
-    spdots = ls['dot'].values
+    spdots = [
+        'Practical Vim is for programmers who want to raise their game',
+        'I demonstrate by showing examples rather than by describing them',
+        'making the same small change in several places or moving around',
+        'If this chapter seems surprisingly short',
+        'see that there is a convenient shortcut for pasting text from a register',
+        'Visual mode allows us to define a selection of text and then',
+        'which is where the modal editing paradigm was conceived',
+        'The buffer list lets us keep track of the set of files that',
+        'which can be used to open any file by providing a filepath',
+        'moving around within a document as well as commands for jumping between buffers',
+        'except that they can also move us between different files',
+        'and paste functionality differs from what you may be used to',
+        'But when we want to repeat anything more substantial',
+        'regular expressions work or how to turn them off',
+        'see how we can put them to use with the search command',
+        'You might think that the substitute command is just for simple',
+        'runs an Ex command on each line that matches a specified pattern',
+        'ctags is an external program that scans through a codebase and',
+        'list is a core feature that allows us to integrate external tools into our workflow',
+        'search command is great for finding all occurrences of a pattern within a file',
+        'Autocompletion saves us from typing out entire words',
+        'find out how to operate the spell checker from Normal mode',
+        'Make it your goal to operate Vim without having to think about what',
+        'The focus of this book is on mastering the core functionality of Vim'
+    ]
 
     n1 = 101
     n2 = 1001
 
     for chunk in chunks(lines, spdots):
         if n1 < 1000:
-            with open(filename + "0" + str(n1-100) + ".txt", 'w') as file_obj:
+            with open(filename + "0" + str(n1-100) + ".md", 'w') as file_obj:
                 for line in chunk:
                     if line != '\n':
                         file_obj.write(line + '\n')
             n1 += 100
 
         else:
-            with open(filename + str(n2-100) + ".txt", 'w') as file_obj:
+            with open(filename + str(n2-100) + ".md", 'w') as file_obj:
                 for line in chunk:
                     if line != '\n':
                         file_obj.write(line + '\n')
