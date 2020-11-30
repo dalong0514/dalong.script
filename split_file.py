@@ -45,31 +45,22 @@ def SplitFiles():
 
         # 一定要确认传入的锚点字符在文档里是唯一的，可以直接在文档里搜索来确认
         spdots = [
-            '你可能读了几个月的报纸，或者看了几个月的电视新闻，却没有见过一个代数公式',
-            '34个州共有超过1000家餐馆参与了这项活动，每周一会',
-            '同性婚姻一直富有争议性，许多人基于宗教信仰表示反对',
-            '某项民意调查访问了随机抽样的1000个人后，公布了调查结果',
-            '媒体对于气候变化的报道似乎非常频繁。气候学家警告我们',
-            '真的存在咖啡因依赖吗',
-            '酒精是否可以增强我们对异性吸引力的感知',
-            '脑容量大的人更聪明吗？为了回答这个问题',
-            '该榜单在指导公众评估美国大学的质量方面非常有影响力，然而',
-            '美国人的阅读量在减少，而且阅读技能在衰退',
-            '营养学家告诉我们，健康的饮食习惯包括每天摄入20~35克纤维',
-            '教育是否值得投资？我们了解到，一般来说',
-            '柱状图和直方图自然是很古老的图形了。用柱状图来展示数据',
-            '媒体有发布排名的癖好，最宜居的城市、最好的大学、最健康的食物',
-            '预测股市的走势可能让你发财，难怪有那么多人都埋头在股市信息里',
-            '排名前三的全垒打球员分别是巴里',
-            '犹他州普罗沃一位女性连续第三次在同一日期生下婴儿',
-            '就在纽约巨人队赢得第46届超级碗冠军后不久',
-            '对于赛马而言，起点位置决定了最后结果。如果起点靠近内跑道',
-            '如果你赌博，你就会在乎赢钱的概率有多大，它可以告诉你',
-            '你认识很容易生气的人吗？大自然有办法让这些人平静下来',
-            '一篇文章报道了大学新生的压力水平。造成这种情况的根本原因是',
-            '假设我们查看超过10000只面向大众投资者发行的共同基金',
-            '高校之一，该校的特色专业是工程学、科学与技术。在2010',
-            '这些争议并没有大家一致认同的解决方法，我们的答案只包括应该纳入讨论的'
+            'This book is concerned with the nuts and bolts of manipulating',
+            'When I wrote the first edition of this book in 2011 and 2012',
+            'This chapter discusses capabilities built into the Python language that will',
+            'array objects as the lingua franca for data exchange',
+            'pandas will be a major tool of interest throughout much of the rest of the book',
+            'Accessing data is a necessary first step for using most of the tools in this book',
+            'During the course of doing data analysis and modeling',
+            'data may be spread across a number of files or databases or',
+            'to help identify outliers or needed data transformations',
+            'Categorizing a dataset and applying a function to each group',
+            'Time series data is an important form of structured data in many different fields',
+            'The preceding chapters have focused on introducing different types of data',
+            'I have focused on providing a programming foundation for doing data',
+            'contains a collection of miscellaneous example datasets that you can use',
+            'I will go deeper into the NumPy library for array computing',
+            'we looked at the basics of using the IPython shell and Jupyter notebook'
         ]
 
         n1 = 101
