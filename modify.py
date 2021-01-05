@@ -13,5 +13,6 @@ def modify_text(line):
     line = line.replace('・', '·')
     line = line.replace('， ', '，')
     line = line.replace('。 ', '。')
+    line = line.replace('  ', ' ')
     line = line.strip()
     return line
