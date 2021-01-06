@@ -1,39 +1,47 @@
 # -*- coding: utf-8 -*-
-import glob, os
-
+import glob, os, time
 from PIL import Image
 
-# 手动获取需要设置的宽度像素
-init_num = int(input("Please enter the init number: "))
+def num_image():
 
-# 手动获取图片的格式
-image_format = input("Please enter the image's format(jpg/jpeg/png-default): ")
+    # 手动获取需要设置的宽度像素
+    init_num = int(input("Please enter the init number: "))
 
-if image_format == 'jpeg' or image_format == 'jpg':
-    im_format =image_format
-else:
-    im_format = 'png'
+    # 手动获取图片的格式
+    image_format = input("Please enter the image's format(jpg/jpeg/png-default): ")
 
-user_input = input("Please enter the image's width, or no(default): ")
-
-if user_input != '':
-    user_width = int(user_input)
-# else:
-#     user_width = 800
-
-all_files = glob.glob("/Users/Daglas/Desktop/*." + im_format)
-
-# 获取该文件夹下所有特定文件的所有对象并分隔开来
-for infile in sorted(all_files):
-    file, ext = os.path.splitext(infile)
-    im = Image.open(infile)
-
-    # 只对宽度像素大于给定值的图片进行处理
-    if user_input != '' and im.width > user_width:
-        new_size = int(user_width), int(user_width*(im.height/im.width))
-        im = im.resize(new_size)
-        im.save("/Users/Daglas/Desktop/" + str(init_num) + "." + im_format)
+    if image_format == 'jpeg' or image_format == 'jpg':
+        im_format =image_format
     else:
-        im.save("/Users/Daglas/Desktop/" + str(init_num) + "." + im_format)
+        im_format = 'png'
 
-    init_num += 1
+    user_input = input("Please enter the image's width, or no(default): ")
+
+    if user_input != '':
+        user_width = int(user_input)
+    # else:
+    #     user_width = 800
+
+    all_files = glob.glob("/Users/Daglas/Desktop/*." + im_format)
+
+    # 获取该文件夹下所有特定文件的所有对象并分隔开来
+    for infile in sorted(all_files):
+        file, ext = os.path.splitext(infile)
+        im = Image.open(infile)
+
+        # 只对宽度像素大于给定值的图片进行处理
+        if user_input != '' and im.width > user_width:
+            new_size = int(user_width), int(user_width*(im.height/im.width))
+            im = im.resize(new_size)
+            im.save("/Users/Daglas/Desktop/" + str(init_num) + "." + im_format)
+        else:
+            im.save("/Users/Daglas/Desktop/" + str(init_num) + "." + im_format)
+
+        init_num += 1
+
+if __name__ == '__main__':
+    time1=time.time()
+    num_image()
+    time2 = time.time()
+    print('OK!')
+    print('Time Used: ' + str(time2 - time1) + 's')
