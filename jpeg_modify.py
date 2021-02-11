@@ -16,7 +16,7 @@ def jpeg_modify():
             im.save(file + ".jpeg")
 
 if __name__ == '__main__':
-    time1=time.time()
+    time1 = time.time()
     jpeg_modify()
     time2 = time.time()
     print('OK!')
