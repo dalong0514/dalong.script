@@ -45,22 +45,24 @@ def SplitFiles():
 
         # 一定要确认传入的锚点字符在文档里是唯一的，可以直接在文档里搜索来确认
         spdots = [
-            'This book is concerned with the nuts and bolts of manipulating',
-            'When I wrote the first edition of this book in 2011 and 2012',
-            'This chapter discusses capabilities built into the Python language that will',
-            'array objects as the lingua franca for data exchange',
-            'pandas will be a major tool of interest throughout much of the rest of the book',
-            'Accessing data is a necessary first step for using most of the tools in this book',
-            'During the course of doing data analysis and modeling',
-            'data may be spread across a number of files or databases or',
-            'to help identify outliers or needed data transformations',
-            'Categorizing a dataset and applying a function to each group',
-            'Time series data is an important form of structured data in many different fields',
-            'The preceding chapters have focused on introducing different types of data',
-            'I have focused on providing a programming foundation for doing data',
-            'contains a collection of miscellaneous example datasets that you can use',
-            'I will go deeper into the NumPy library for array computing',
-            'we looked at the basics of using the IPython shell and Jupyter notebook'
+            'is known as a programming framework that lets developers build',
+            'we often forget how lucky we are to work in an industry where',
+            'Building an app is a journey of creating an initial skeleton of the app and',
+            'seeing it through to the end is not so easy',
+            'demoed by Ryan Dahl at JSConf in Berlin',
+            'different approaches to how they function under the hood',
+            'one of the first considerations is how the user will',
+            'They also focus on being accessible to the user without having',
+            'with using Microsoft Office will know how much functionality is available',
+            'The UI of an app is one of the most important things to get right',
+            'your computer and used to chat with friends and family',
+            'or configuring settings for how you use a particular app',
+            'Copying data from one source and using it in another is a function',
+            'shortcuts is invaluable for using apps in a fast and productive manner',
+            'open and running while focusing on one app at a time',
+            'trace that reports what error occurred and where it happened in the code',
+            'next step is to consider how you want to package it for running on your',
+            'and Electron space that simplify turning built Linux executables'
         ]
 
         n1 = 101
