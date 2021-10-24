@@ -4,11 +4,11 @@ import modify as md
 
 
 # split the arr into N chunks
-def chunks(arr, in_list):
+def chunks(arr, split_point_list):
     seq = [0]
     tips = []
 
-    for v in in_list:
+    for v in split_point_list:
         for x in arr:
             if v in x:
                 seq.append(arr.index(x)-2)  # 由于定位的行前面还有个空行，所以 -2
