@@ -7,10 +7,8 @@ def modify_text(line):
     # 去 \n 是转 pdf 时启用
     # line = line.replace('\n', '')
     line = pangu.spacing_text(line)
-    new_line = line.replace(' “', '“')\
-        .replace('” ', '”')\
-        .replace('“', '「')\
-        .replace('”', '」')\
+    new_line = line.replace('“', '"')\
+        .replace('”', '"')\
         .replace('・', '·')\
         .replace('， ', '，')\
         .replace('。 ', '。')\
