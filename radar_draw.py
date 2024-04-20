@@ -9,23 +9,23 @@ plt.rcParams['font.family'] = 'Heiti TC'  # 替换为你选择的字体
 plt.rcParams['axes.unicode_minus'] = False  # 正确显示负号
 
 def draw_radar():
-    # # 轴的名称
-    # categories = ['人均出图量', '数智设计用户使用率', '数智设计图纸渗透率', '数智设计项目覆盖率']
-    # # 第一组值（通常在0到1之间）
-    # values = [0.6, 0.7, 0.3, 0.5]
-    # # 第二组值
-    # values2 = [0.8, 0.9, 0.5, 0.8]
-    # # 新增的第三组值
-    # values3 = [0.4, 0.4, 0.2, 0.3]
-
     # 轴的名称
-    categories = ['人均出图量', '数智设计用户使用率', '数智设计图纸渗透率']
+    categories = ['人均出图量', '数智设计用户使用率', '数智设计图纸渗透率', '数智设计项目覆盖率']
     # 第一组值（通常在0到1之间）
-    values = [0.6, 0.7, 0.3]
+    values = [0.6, 0.78, 0.3, 0.5]
     # 第二组值
-    values2 = [0.8, 0.9, 0.5]
+    values2 = [0.8, 0.9, 0.5, 0.8]
     # 新增的第三组值
-    values3 = [0.4, 0.4, 0.2]
+    values3 = [0.4, 0.56, 0.2, 0.3]
+
+    # # 轴的名称
+    # categories = ['人均出图量', '数智设计用户使用率', '数智设计图纸渗透率']
+    # # 第一组值（通常在0到1之间）
+    # values = [0.6, 0.7, 0.3]
+    # # 第二组值
+    # values2 = [0.8, 0.9, 0.5]
+    # # 新增的第三组值
+    # values3 = [0.4, 0.4, 0.2]
 
     # 计算每个轴的角度
     N = len(categories)
@@ -50,22 +50,22 @@ def draw_radar():
     ax.plot(angles, values3, color='green', linewidth=2)
 
     # 设置轴的标签位置，移动到圆圈外面
-    label_distance = 1.05  # 调整这个值可以控制轴名称距离中心的距离
-    for label, angle in zip(categories, angles[:-1]):
-        ha = 'right' if np.cos(angle) < 0 else 'left'
-        va = 'bottom' if np.sin(angle) > 0 else 'top'
-        ax.text(angle, label_distance, label, ha=ha, va=va, fontsize=13, color='black')
+    # label_distance = 1.05  # 调整这个值可以控制轴名称距离中心的距离
+    # for label, angle in zip(categories, angles[:-1]):
+    #     ha = 'right' if np.cos(angle) < 0 else 'left'
+    #     va = 'bottom' if np.sin(angle) > 0 else 'top'
+    #     ax.text(angle, label_distance, label, ha=ha, va=va, fontsize=13, color='black')
 
     # 显示每个点的值
     # 第一组数据
     for angle, value in zip(angles[:-1], values[:-1]):
-        ax.text(angle, value - 0.05, f"{value:.2f}", ha='center', va='center', fontsize=10, color='black')
+        ax.text(angle, value - 0.05, f"{value:.2f}", ha='center', va='center', fontsize=15, color='black')
     # 第二组数据
     for angle, value in zip(angles[:-1], values2[:-1]):
-        ax.text(angle, value - 0.05, f"{value:.2f}", ha='center', va='center', fontsize=10, color='black')
+        ax.text(angle, value - 0.05, f"{value:.2f}", ha='center', va='center', fontsize=15, color='black')
     # 第三组数据
     for angle, value in zip(angles[:-1], values3[:-1]):
-        ax.text(angle, value - 0.05, f"{value:.2f}", ha='center', va='center', fontsize=10, color='black')
+        ax.text(angle, value - 0.05, f"{value:.2f}", ha='center', va='center', fontsize=15, color='black')
 
     # 隐藏y轴的标签
     ax.set_yticklabels([])
