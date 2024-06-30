@@ -1,0 +1,10 @@
+[
+    {
+        "content": "Definition: In this task, you need to count the number of vowels (letters 'a', 'e', 'i', 'o', 'u') / consonants (all letters other than vowels) in the given sentence.\nInput: Sentence: 'a baseball player is in his hitting stance as a few people watch'. Count the number of consonants in the given sentence.\nOutput:",
+        "role": "user"
+    },
+    {
+        "content": "32",
+        "role": "assistant"
+    }
+]

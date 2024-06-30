@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup, CData, Doctype
 
 # note_files = 'Notes/*.md'
 # out_file = 'nvalt.enex'
-note_files = '/Users/Daglas/dalong.GitHub/readnotes/20230101复制书籍/2023003聪明的阅读者/*.md'
+note_files = '/Users/Daglas/dalong.GitHub/selfstudy/009文章汇总/*.md'
 out_file = '/Users/Daglas/Desktop/md.enex'
 
 def create_note(note_data, soup):
