@@ -1,17 +1,24 @@
-import time
+# -*- coding: utf-8 -*-
+import time, os
 from gptpdf import parse_pdf
 import api_key as api
 
 # base_url = 'https://dashscope.aliyuncs.com/compatible-mode/v1'
 # api_key = api.qwen_api_key()
 api_key = api.openai_api_key()
-out_filename = '/Users/Daglas/Desktop/gpt_pdf'
-pdf_path = '/Users/Daglas/Dropbox/zotero/storage/DIVWD5C4/Language Models are Unsupervised Multitask Learners.pdf'
+pdf_path = '/Users/Daglas/Downloads/thatsinteresting_1971.pdf'
+
+def get_out_filename():
+    file_name = os.path.basename(pdf_path)
+    name_without_extension = os.path.splitext(file_name)[0]
+    return '/Users/Daglas/Downloads/' + name_without_extension
 
 def gpt_pdf2txt():
+    out_filename = get_out_filename()
     content, image_paths = parse_pdf(pdf_path, 
                                      output_dir=out_filename, 
-                                     model="gpt-4o",
+                                    #  model="gpt-4o",
+                                     model="gpt-4o-mini",
                                      api_key=api_key)
     print(content)
 
