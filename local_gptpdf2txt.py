@@ -3,8 +3,9 @@ import time, os
 from gptpdf import parse_pdf
 import api_key as api
 
-api_key = api.openai_api_key()
-pdf_path = '/Users/Daglas/Downloads/thatsinteresting_1971.pdf'
+base_url = 'https://76b3-117-147-119-165.ngrok-free.app/v1'
+api_key = api.qwen_api_key()
+pdf_path = '/Users/Daglas/Downloads/thatsinteresting_1971_1.pdf'
 
 def get_out_filename():
     file_name = os.path.basename(pdf_path)
@@ -15,8 +16,8 @@ def gpt_pdf2txt():
     out_filename = get_out_filename()
     content, image_paths = parse_pdf(pdf_path, 
                                      output_dir=out_filename, 
-                                    #  model="gpt-4o",
-                                     model="gpt-4o-mini",
+                                     base_url = base_url,
+                                     model="llama3.2-vision:90b",
                                      api_key=api_key)
     print(content)
 
