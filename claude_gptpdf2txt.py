@@ -3,8 +3,9 @@ import time, os
 from gptpdf import parse_pdf
 import api_key as api
 
-api_key = api.openai_api_key()
-pdf_path = '/Users/Daglas/Downloads/20241118泰语文件2-泰国规范.pdf'
+base_url = 'https://api.anthropic.com/v1'
+api_key = api.claude_api_key()
+pdf_path = '/Users/Daglas/Downloads/2019623管理行为_1-5.pdf'
 
 def get_out_filename():
     file_name = os.path.basename(pdf_path)
@@ -15,8 +16,8 @@ def gpt_pdf2txt():
     out_filename = get_out_filename()
     content, image_paths = parse_pdf(pdf_path, 
                                      output_dir=out_filename, 
-                                     model="gpt-4o",
-                                    #  model="gpt-4o-mini",
+                                     base_url = base_url,
+                                     model="claude-3-5-haiku-20241022",
                                      api_key=api_key)
     print(content)
 

@@ -5,7 +5,7 @@ import api_key as api
 
 base_url = 'https://dashscope.aliyuncs.com/compatible-mode/v1'
 api_key = api.qwen_api_key()
-pdf_path = '/Users/Daglas/Downloads/thatsinteresting_1971_1.pdf'
+pdf_path = '/Users/Daglas/Downloads/2024123Mindware1Ed_3-34.pdf'
 
 def get_out_filename():
     file_name = os.path.basename(pdf_path)
