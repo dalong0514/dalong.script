@@ -4,7 +4,7 @@ from gptpdf import parse_pdf
 import api_key as api
 
 api_key = api.openai_api_key()
-pdf_path = '/Users/Daglas/Downloads/20241118泰语文件2-泰国规范.pdf'
+pdf_path = '/Users/Daglas/Downloads/20241202顾川川-计算书业务建设说明书20241130.pdf'
 
 def get_out_filename():
     file_name = os.path.basename(pdf_path)
