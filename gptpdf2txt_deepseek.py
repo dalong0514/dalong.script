@@ -3,10 +3,11 @@ import time, os
 from gptpdf import parse_pdf
 import api_key as api
 
-api_key = api.openai_api_key()
-pdf_path = '/Users/Daglas/Downloads/20241202顾川川-计算书业务建设说明书20241130.pdf'
-model_name='gpt-4o'
-# model_name='gpt-4o-mini'
+api_key = api.deepseek_api_key()
+base_url= 'https://api.deepseek.com/v1'
+model_name='deepseek-chat'
+
+pdf_path = '/Users/Daglas/Downloads/thatsinteresting_1971_1.pdf'
 
 def get_out_filename():
     file_name = os.path.basename(pdf_path)
@@ -17,6 +18,7 @@ def gpt_pdf2txt():
     out_filename = get_out_filename()
     content, image_paths = parse_pdf(pdf_path, 
                                      output_dir=out_filename, 
+                                     base_url = base_url,
                                      model=model_name,
                                      api_key=api_key)
     print(content)
