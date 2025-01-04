@@ -3,8 +3,10 @@ import time, os
 from gptpdf import parse_pdf
 import api_key as api
 
-base_url = 'https://dashscope.aliyuncs.com/compatible-mode/v1'
-api_key = api.qwen_api_key()
+api_key = api.ai302_api_key()
+base_url= 'https://api.302.ai/v1'
+model_name='gemini-2.0-flash-exp'
+
 pdf_path = '/Users/Daglas/Dropbox/zotero/storage/NTR3LIEJ/Willis 等 - 2021 - Engineering Sketch Generation for Computer-Aided Design.pdf'
 
 def get_out_filename():
@@ -17,7 +19,7 @@ def gpt_pdf2txt():
     content, image_paths = parse_pdf(pdf_path, 
                                      output_dir=out_filename, 
                                      base_url = base_url,
-                                     model="qwen-vl-max-latest",
+                                     model=model_name,
                                      api_key=api_key)
     print(content)
 

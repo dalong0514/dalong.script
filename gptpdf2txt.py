@@ -4,9 +4,9 @@ from gptpdf import parse_pdf
 import api_key as api
 
 api_key = api.openai_api_key()
-pdf_path = '/Users/Daglas/Downloads/20241202顾川川-计算书业务建设说明书20241130.pdf'
+pdf_path = '/Users/Daglas/Dropbox/zotero/storage/NTR3LIEJ/Willis 等 - 2021 - Engineering Sketch Generation for Computer-Aided Design.pdf'
 model_name='gpt-4o'
-# model_name='gpt-4o-mini'
+# model_name='gpt-4o-mini-2024-07-18'
 
 def get_out_filename():
     file_name = os.path.basename(pdf_path)
