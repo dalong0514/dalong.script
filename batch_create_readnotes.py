@@ -2,13 +2,13 @@
 import time
 
 def batch_create_readnotes():
-    first_num = 20
-    num = 4
-    base_path = "/Users/Daglas/dalong.GitHub/readnotes/20240101复制书籍/2024159科技群星闪耀时/"
-    book_name = "2024159科技群星闪耀时"
-    default_content = 'Stephen Wolfram.(2024/2016).2024159科技群星闪耀时.(应俊耀等译).人民邮电出版社 => 前言'
+    first_num = 35
+    num = 2
+    base_path = "/Users/Daglas/dalong.github/readnotes/20250101复制书籍/2025002The-Art-of-Doing-Science-and-Engineering/"
+    book_name = "2025002The-Art-of-Doing-Science-and-Engineering"
+    default_content = "Richard W. Hamming.(2020.1997).2025002The-Art-of-Doing-Science-and-Engineering.Stripe Press => 0101Introduction"
     
-    for i in range(1, num + 1):
+    for i in range(0, num):
         # 格式化序号，确保是4位数字，前两位是批次号，后两位是01
         formatted_num = f"{first_num + i:02}01"
         file_name = f"{book_name}{formatted_num}.md"
@@ -22,7 +22,12 @@ def batch_create_readnotes():
 
 if __name__ == '__main__':
     start_time = time.time()
+    print('waiting...\n')
     batch_create_readnotes()
     end_time = time.time()
-    print('OK!')
-    print('Time Used: ' + str(end_time - start_time) + 's')
+    # 改进时间显示
+    elapsed_time = end_time - start_time
+    if elapsed_time < 60:
+        print(f'Time Used: {elapsed_time:.2f} seconds')
+    else:
+        print(f'Time Used: {elapsed_time/60:.2f} minutes')

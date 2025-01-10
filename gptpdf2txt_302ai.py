@@ -7,7 +7,7 @@ api_key = api.ai302_api_key()
 base_url= 'https://api.302.ai/v1'
 model_name='gemini-2.0-flash-exp'
 
-pdf_path = '/Users/Daglas/Dropbox/zotero/storage/NTR3LIEJ/Willis 等 - 2021 - Engineering Sketch Generation for Computer-Aided Design.pdf'
+pdf_path = '/Users/Daglas/Desktop/test_pdf.pdf'
 
 def get_out_filename():
     file_name = os.path.basename(pdf_path)
