@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from yt_dlp import YoutubeDL
 import os, sys
 
