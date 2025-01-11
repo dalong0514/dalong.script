@@ -14,11 +14,14 @@ def download_youtube_video(video_url, output_path="/Users/Daglas/Desktop"):
     """
     # 确保输出路径存在
     os.makedirs(output_path, exist_ok=True)
+    
+    # 打印调试信息
+    print(f"下载路径：{os.path.abspath(output_path)}")  # 显示绝对路径
 
     # 配置 youtube-dl 选项
     ydl_opts = {
         'format': 'best',  # 下载最佳质量
-        'outtmpl': f"{output_path}/%(title)s.%(ext)s",  # 直接使用绝对路径
+        'outtmpl': os.path.join(os.path.abspath(output_path), '%(title)s.%(ext)s'),  # 使用绝对路径
         'proxy': PROXY,  # 设置代理
         'noplaylist': True,  # 不下载播放列表
         'quiet': False,  # 显示进度信息
@@ -29,13 +32,11 @@ def download_youtube_video(video_url, output_path="/Users/Daglas/Desktop"):
         with YoutubeDL(ydl_opts) as ydl:
             # 开始下载
             info_dict = ydl.extract_info(video_url, download=True)
-            print(f"视频已下载至: {output_path}/{info_dict['title']}.{info_dict['ext']}")
+            print(f"视频已下载至: {os.path.join(output_path, info_dict['title'] + '.' + info_dict['ext'])}")
     except Exception as e:
         print(f"下载失败: {str(e)}")
 
 if __name__ == "__main__":
-    # 示例用法：将此脚本保存为 download.py 后，通过命令行执行：
-    # python download.py <YouTube_URL> [download_path]
     import sys
 
     if len(sys.argv) < 2:
@@ -44,6 +45,7 @@ if __name__ == "__main__":
     
     # 从命令行参数中获取
     url = sys.argv[1]
-    path = sys.argv[2] if len(sys.argv) > 2 else "."
+    # 修改这里：如果没有提供路径参数，使用默认路径
+    path = sys.argv[2] if len(sys.argv) > 2 else "/Users/Daglas/Desktop"
 
     download_youtube_video(url, path)
