@@ -1,5 +1,5 @@
 from yt_dlp import YoutubeDL
-import os
+import os, sys
 
 # 设置代理
 PROXY = "http://127.0.0.1:7890"
@@ -15,9 +15,6 @@ def download_youtube_video(video_url, output_path="/Users/Daglas/Desktop"):
     # 确保输出路径存在
     os.makedirs(output_path, exist_ok=True)
     
-    # 打印调试信息
-    print(f"下载路径：{os.path.abspath(output_path)}")  # 显示绝对路径
-
     # 配置 youtube-dl 选项
     ydl_opts = {
         'format': 'best',  # 下载最佳质量
@@ -36,16 +33,38 @@ def download_youtube_video(video_url, output_path="/Users/Daglas/Desktop"):
     except Exception as e:
         print(f"下载失败: {str(e)}")
 
+
+def batch_download_from_file(file_path, output_path="/Users/Daglas/Desktop"):
+    """
+    从文件中批量下载 YouTube 视频
+
+    参数：
+    - file_path: str，包含 YouTube 链接的文件路径
+    - output_path: str，保存文件的路径（默认桌面）
+    """
+    try:
+        # 读取文件中的所有链接
+        with open(file_path, 'r') as file:
+            urls = file.readlines()
+        
+        # 去除空白字符并过滤空行
+        urls = [url.strip() for url in urls if url.strip()]
+        
+        # 逐个下载
+        for i, url in enumerate(urls, 1):
+            print(f"\n正在下载第 {i}/{len(urls)} 个视频: {url}")
+            download_youtube_video(url, output_path)
+            
+        print("\n所有视频下载完成！")
+    except Exception as e:
+        print(f"批量下载失败: {str(e)}")
+
 if __name__ == "__main__":
-    import sys
-
-    if len(sys.argv) < 2:
-        print("用法：python download.py <YouTube_URL> [download_path]")
-        sys.exit(1)
+    # 设置默认文件路径
+    default_list_path = "/Users/Daglas/dalong.script/youtube_download_list.txt"
     
-    # 从命令行参数中获取
-    url = sys.argv[1]
-    # 修改这里：如果没有提供路径参数，使用默认路径
-    path = sys.argv[2] if len(sys.argv) > 2 else "/Users/Daglas/Desktop"
-
-    download_youtube_video(url, path)
+    # 从命令行参数获取文件路径
+    list_path = sys.argv[1] if len(sys.argv) > 1 else default_list_path
+    
+    # 开始批量下载
+    batch_download_from_file(list_path)
