@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 import subprocess
 import os
 import argparse
@@ -32,23 +31,6 @@ def extract_text_from_json(json_file, output_txt=None):
     except Exception as e:
         print(f"文本提取失败: {e}")
         return None
-
-def parse_arguments():
-    """
-    解析命令行参数
-    :return: 包含参数的命名空间
-    """
-    parser = argparse.ArgumentParser(description="将视频文件转换为文字转录")
-    parser.add_argument('input_video', type=str, help='输入视频文件路径')
-    parser.add_argument('--language', type=str, default='zh', 
-                       help='音频语言代码 (默认: zh)')
-    parser.add_argument('--model_path', type=str, 
-                       default='/Users/Daglas/dalong.modelsets/whisper-large-v3-turbo',
-                       help='whisper模型路径')
-    parser.add_argument('--output_dir', type=str, 
-                       default=None,
-                       help='输出目录 (默认: 视频文件所在目录)')
-    return parser.parse_args()
 
 def convert_video_to_wav(input_file, output_file=None):
     """
@@ -160,6 +142,23 @@ def video_to_text(input_video, model_path, output_dir=None, language="zh"):
         return final_result
     
     return None
+
+def parse_arguments():
+    """
+    解析命令行参数
+    :return: 包含参数的命名空间
+    """
+    parser = argparse.ArgumentParser(description="将视频文件转换为文字转录")
+    parser.add_argument('input_video', type=str, help='输入视频文件路径')
+    parser.add_argument('--language', type=str, default='zh', 
+                       help='音频语言代码 (默认: zh)')
+    parser.add_argument('--model_path', type=str, 
+                       default='/Users/Daglas/dalong.modelsets/whisper-large-v3-turbo',
+                       help='whisper模型路径')
+    parser.add_argument('--output_dir', type=str, 
+                       default=None,
+                       help='输出目录 (默认: 视频文件所在目录)')
+    return parser.parse_args()
 
 if __name__ == "__main__":
     args = parse_arguments()

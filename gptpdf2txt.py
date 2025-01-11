@@ -1,29 +1,44 @@
 # -*- coding: utf-8 -*-
 import time, os
+import argparse 
 from gptpdf import parse_pdf
 import api_key as api
 
-api_key = api.openai_api_key()
-pdf_path = '/Users/Daglas/Dropbox/zotero/storage/NTR3LIEJ/Willis 等 - 2021 - Engineering Sketch Generation for Computer-Aided Design.pdf'
-model_name='gpt-4o'
-# model_name='gpt-4o-mini-2024-07-18'
-
-def get_out_filename():
+def get_out_filename(pdf_path):
     file_name = os.path.basename(pdf_path)
     name_without_extension = os.path.splitext(file_name)[0]
     return '/Users/Daglas/Downloads/' + name_without_extension
 
-def gpt_pdf2txt():
-    out_filename = get_out_filename()
+def gpt_pdf2txt(pdf_path, model_name):
+    out_filename = get_out_filename(pdf_path)
     content, image_paths = parse_pdf(pdf_path, 
                                      output_dir=out_filename, 
                                      model=model_name,
                                      api_key=api_key)
-    print(content)
+
+def parse_arguments():
+    """
+    解析命令行参数
+    :return: 包含参数的命名空间
+    """
+    parser = argparse.ArgumentParser(description="PDF to Text Conversion using GPT")
+    parser.add_argument('pdf_path', type=str, help='Path to the PDF file')
+    parser.add_argument('--model', type=str, 
+                       default='gpt-4o',
+                       help='GPT model to use (default: gpt-4o)')
+    return parser.parse_args()
 
 if __name__ == '__main__':
+    args = parse_arguments()
+    api_key = api.openai_api_key()
+
     start_time = time.time()
     print('waiting...\n')
-    gpt_pdf2txt()
+    gpt_pdf2txt(args.pdf_path, args.model)
     end_time = time.time()
-    print('Time Used: ' + str((end_time - start_time)/60) + 'min')
+    # 改进时间显示
+    elapsed_time = end_time - start_time
+    if elapsed_time < 60:
+        print(f'Time Used: {elapsed_time:.2f} seconds')
+    else:
+        print(f'Time Used: {elapsed_time/60:.2f} minutes')
