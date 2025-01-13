@@ -2,17 +2,17 @@
 import time
 
 def batch_create_readnotes():
-    first_num = 35
-    num = 2
-    base_path = "/Users/Daglas/dalong.github/readnotes/20250101复制书籍/2025002The-Art-of-Doing-Science-and-Engineering/"
-    book_name = "2025002The-Art-of-Doing-Science-and-Engineering"
-    default_content = "Richard W. Hamming.(2020.1997).2025002The-Art-of-Doing-Science-and-Engineering.Stripe Press => 0101Introduction"
+    first_num = 1
+    num = 15
+    base_path = "/Users/Daglas/dalong.github/readnotes/20250101复制书籍"
+    book_name = "2025008浪潮将至"
+    default_content = "Mustafa Suleyman.(2024).2025008浪潮将至.(贾海波译).中信出版社 => 前言"
     
     for i in range(0, num):
         # 格式化序号，确保是4位数字，前两位是批次号，后两位是01
         formatted_num = f"{first_num + i:02}01"
         file_name = f"{book_name}{formatted_num}.md"
-        file_path = base_path + file_name
+        file_path = base_path + "/" + book_name + "/" + file_name
         
         # 创建文件并写入内容
         with open(file_path, 'w', encoding='utf-8') as f:
