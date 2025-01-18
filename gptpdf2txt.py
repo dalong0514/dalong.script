@@ -25,7 +25,7 @@ def parse_arguments():
     parser.add_argument('pdf_path', type=str, help='Path to the PDF file')
     parser.add_argument('--model', type=str, 
                        default='gpt-4o',
-                       help='GPT model to use (default: gpt-4o)')
+                       help='GPT model to use (default: gpt-4o-mini)')
     return parser.parse_args()
 
 if __name__ == '__main__':
