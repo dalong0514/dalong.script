@@ -3,10 +3,10 @@ import time
 
 def batch_create_readnotes():
     first_num = 1
-    num = 18
+    num = 26
     base_path = "/Users/Daglas/dalong.github/readnotes/20250101复制书籍"
-    book_name = "2025021Genius-Unmasked"
-    default_content = "Roberta Ness.(2013).2025021Genius-Unmasked.Oxford University Press => Preface"
+    book_name = "2025019Reality-Plus-Virtual-Worlds-and-the-Problems-of-Philosophy"
+    default_content = "David J. Chalmers.(2022).2025019Reality-Plus-Virtual-Worlds-and-the-Problems-of-Philosophy.Norton & Company => Preface"
     
     for i in range(0, num):
         # 格式化序号，确保是4位数字，前两位是批次号，后两位是01

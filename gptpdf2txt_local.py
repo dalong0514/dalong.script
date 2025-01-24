@@ -25,7 +25,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="PDF to Text Conversion using GPT")
     parser.add_argument('pdf_path', type=str, help='Path to the PDF file')
     parser.add_argument('--model', type=str, 
-                       default='minicpm-o-2_6:latest',
+                       default='ui-tars-7b:latest',
                        help='GPT model to use (default: gpt-4o-mini)')
     return parser.parse_args()
 
