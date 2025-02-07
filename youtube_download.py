@@ -62,7 +62,7 @@ def batch_download_from_file(file_path, output_path="/Users/Daglas/Desktop"):
 
 if __name__ == "__main__":
     # 设置默认文件路径
-    default_list_path = "/Users/Daglas/dalong.script/youtube_download_list.txt"
+    default_list_path = "/Users/Daglas/dalong.github/dalong.script/youtube_download_list.txt"
     
     # 从命令行参数获取文件路径
     list_path = sys.argv[1] if len(sys.argv) > 1 else default_list_path

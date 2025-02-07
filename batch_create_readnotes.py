@@ -2,11 +2,11 @@
 import time
 
 def batch_create_readnotes():
-    first_num = 1
-    num = 26
-    base_path = "/Users/Daglas/dalong.github/readnotes/20250101复制书籍"
-    book_name = "2025019Reality-Plus-Virtual-Worlds-and-the-Problems-of-Philosophy"
-    default_content = "David J. Chalmers.(2022).2025019Reality-Plus-Virtual-Worlds-and-the-Problems-of-Philosophy.Norton & Company => Preface"
+    first_num = 8
+    num = 7
+    base_path = "/Users/Daglas/dalong.github/dalong.readnotes/20240101复制书籍"
+    book_name = "2024011认知心理学-心智研究与生活"
+    default_content = "E.布鲁斯·戈尔茨坦.(2020.2019).2024011认知心理学-心智研究与生活5Ed.(张明等译).中国轻工业出版社 => 前言"
     
     for i in range(0, num):
         # 格式化序号，确保是4位数字，前两位是批次号，后两位是01
