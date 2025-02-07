@@ -24,6 +24,9 @@ def download_youtube_video(video_url, output_path="/Users/Daglas/Desktop"):
         'noplaylist': True,  # 不下载播放列表
         'quiet': False,  # 显示进度信息
         'no_warnings': False,  # 显示警告信息
+        'retries': 10,  # 增加重试次数
+        'socket_timeout': 30,  # 设置超时时间
+        'extract_flat': False,
     }
 
     try:
@@ -33,6 +36,10 @@ def download_youtube_video(video_url, output_path="/Users/Daglas/Desktop"):
             print(f"视频已下载至: {os.path.join(output_path, info_dict['title'] + '.' + info_dict['ext'])}")
     except Exception as e:
         print(f"下载失败: {str(e)}")
+        # 如果是网络错误，建议重试
+        if 'Connection aborted' in str(e):
+            print("网络连接中断，请检查代理设置或网络连接")
+            print("建议：1. 检查代理是否可用 2. 稍后重试 3. 更换网络环境")
 
 
 def batch_download_from_file(file_path, output_path="/Users/Daglas/Desktop"):
