@@ -2,11 +2,11 @@
 import time
 
 def batch_create_readnotes():
-    first_num = 8
-    num = 7
+    first_num = 5
+    num = 6
     base_path = "/Users/Daglas/dalong.github/dalong.readnotes/20240101复制书籍"
-    book_name = "2024011认知心理学-心智研究与生活"
-    default_content = "E.布鲁斯·戈尔茨坦.(2020.2019).2024011认知心理学-心智研究与生活5Ed.(张明等译).中国轻工业出版社 => 前言"
+    book_name = "2024097深度学习入门"
+    default_content = "斋藤康毅.(2018).2024097深度学习入门.(陆宇杰译).人民邮电出版社 => 0401 神经网络的学习"
     
     for i in range(0, num):
         # 格式化序号，确保是4位数字，前两位是批次号，后两位是01

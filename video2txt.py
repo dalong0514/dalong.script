@@ -150,8 +150,8 @@ def parse_arguments():
     """
     parser = argparse.ArgumentParser(description="将视频文件转换为文字转录")
     parser.add_argument('input_video', type=str, help='输入视频文件路径')
-    parser.add_argument('--language', type=str, default='zh', 
-                       help='音频语言代码 (默认: zh)')
+    parser.add_argument('--language', type=str, default='en', 
+                       help='音频语言代码 (默认: zh/en)')
     parser.add_argument('--model_path', type=str, 
                        default='/Users/Daglas/dalong.modelsets/whisper-large-v3-turbo',
                        help='whisper模型路径')

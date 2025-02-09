@@ -13,6 +13,7 @@ def modify_text(line):
         .replace('”', '」')\
         .replace('・', '·')\
         .replace(', ', '，')\
+        .replace('， ', '，')\
         .replace('。 ', '。')\
         .replace('’', '\'')\
         .replace(': ', '：')\
